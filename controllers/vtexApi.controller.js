@@ -1,6 +1,7 @@
 import nodeFetch from "node-fetch";
 
-export const getAll = async (req, res) => {
+export const getProductByname = async (req, res) => {
+    console.log('entre product')
 
     try {
         const {productName} = req.params;
@@ -16,13 +17,14 @@ export const getAll = async (req, res) => {
 }
 
 
-export const getProductByname = async (req, res) => {
-
+export const getAll = async (req, res) => {
+    console.log('entre product')
     try {
         const apiResponse = await nodeFetch(
             'https://offcorss.myvtex.com/api/catalog_system/pub/products/search/'
         )
         const apiResponseJson = await apiResponse.json()
+        console.log(apiResponse)
         res.send(apiResponseJson)
     } catch (err) {
         console.log(err)

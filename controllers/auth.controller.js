@@ -15,6 +15,7 @@ export const login = async (req, res) => {
         //Generate web token
         const { token, expiresIn } = generateToken(userToLogin.id);
         generateRefreshToken(userToLogin.id, res);
+        console.log(token)
 
         return res.json({ token, expiresIn });
     }catch (error) {
@@ -41,6 +42,7 @@ export const register = async (req, res) => {
         return res.json({token, expiresIn})
 
     } catch (error){
+        console.log(error)
             return res.status(403).json({error: error.message})
     }
 };
@@ -55,6 +57,7 @@ export const infoUser = async (req, res) => {
 }
 
 export const updateInfo = async (req, res) => {
+    console.log('entre')
     try {
         let updateUser = await User.findByIdAndUpdate(req.uid, {
             email: req.body.email,

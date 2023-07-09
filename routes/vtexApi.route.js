@@ -7,8 +7,8 @@ import {requireToken} from "../middleware/requireAuth.js";
 const router = express.Router();
 
 
-router.get('/product/:productName', requireToken,getAll);
+router.get('/product/:productName', requireToken,getProductByname); //getAll getProductByname
 
-router.get('/product', requireToken,getProductByname);
+router.get('/product', requireToken,getAll);
 
 export default router;

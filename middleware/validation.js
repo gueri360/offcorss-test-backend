@@ -20,7 +20,6 @@ export const registrationValid = [
     body("password", "format incorrect"),
     body("userName").trim().normalizeEmail().isString(),
     body("lastName").trim().normalizeEmail().isString(),
-    body("createDate").isDate(),
     body("userType").isString(),
     body("refid").isBoolean(),
     body("img").trim().isString(),
